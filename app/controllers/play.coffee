@@ -1,4 +1,6 @@
 `import Ember from "ember"`
+`import makeBoard from "ember-minesweeper/utils/make-board"`
+`import makeSquares from "ember-minesweeper/utils/make-squares"`
 
 PlayController = Ember.Controller.extend
 	levels: [
@@ -28,11 +30,9 @@ PlayController = Ember.Controller.extend
 	levelDidChange: (->
 		# Set properties on model
 		level = this.get 'level'
-		board = this.store.createRecord 'game-board',
-			mines: level.mines
-			flags: level.flags
-			rows: level.rows
-			cols: level.cols
+		board = makeBoard.call(this, level)
+		board = makeSquares.call(this, board)
+
 		this.set('model', board)
 	).observes 'level'
 
@@ -41,7 +41,5 @@ PlayController = Ember.Controller.extend
 	flagsLeft: Ember.computed.alias 'model.flags'
 	timeSpent: 0
 	turns: 0
-
-
 
 `export default PlayController`
