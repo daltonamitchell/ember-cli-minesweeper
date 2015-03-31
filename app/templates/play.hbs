@@ -2,7 +2,14 @@
 	<h2>Welcome to Minesweeper</h2>
 
 	{{#if level}}
-		<p>Current level: {{level}}</p>
+		<p>Current level: {{level.name}}</p>
+
+		<div class="row">
+			<div class="col-sm-3"><strong>Turns:</strong> {{turns}}</div>
+			<div class="col-sm-3"><strong>Time:</strong> {{timeSpent}}</div>
+			<div class="col-sm-3"><strong>Mines remaining:</strong> {{minesLeft}}</div>
+			<div class="col-sm-3"><strong>Flags remaining:</strong> {{flagsLeft}}</div>
+		</div>
 	{{else}}
 		<p>Let's get started. Please select a level below to continue.</p>
 	{{/if}}
@@ -12,6 +19,12 @@
 	{{view 'select' 
 		class="form-control" 
 		content=levels
-		value=level
+		optionValuePath="content"
+		optionLabelPath="content.name"
+		selection=level
 		prompt="Please select a level to continue"}}
 </div>
+
+{{#if model}}
+	<h1>Model is set</h1>
+{{/if}}
