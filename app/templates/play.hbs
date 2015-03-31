@@ -15,6 +15,7 @@
 	{{/if}}
 </div>
 
+{{#unless level}}
 <div>
 	{{view 'select' 
 		class="form-control" 
@@ -24,7 +25,8 @@
 		selection=level
 		prompt="Please select a level to continue"}}
 </div>
+{{/unless}}
 
 {{#if model}}
-	<h1>Model is set</h1>
+	{{game-board model=model}}
 {{/if}}

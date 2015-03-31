@@ -1,0 +1,11 @@
+{{#with model as board}}
+	<div class="panel panel-default">
+		<div class="panel-body">
+			Game Board
+
+			{{#each square in board.square}}
+				<div class="well well-sm board-square">[]</div>
+			{{/each}}
+		</div>
+	</div>
+{{/with}}
