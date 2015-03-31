@@ -22,11 +22,11 @@ module.exports = function(environment) {
 
   ENV.contentSecurityPolicy = {
     'default-src': "'none'",
-    'script-src': "'self'",
-    'font-src': "'self'",
+    'script-src': "'self' https://maxcdn.bootstrapcdn.com",
+    'font-src': "'self' https://maxcdn.bootstrapcdn.com",
     'connect-src': "'self'",
     'img-src': "'self'",
-    'style-src': "'self' 'unsafe-inline'",
+    'style-src': "'self' 'unsafe-inline' https://maxcdn.bootstrapcdn.com",
     'media-src': "'self'"
   };
 
