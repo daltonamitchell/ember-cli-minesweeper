@@ -1,6 +1,7 @@
 `import Ember from "ember"`
 
 PlayController = Ember.Controller.extend
-	levels: ['easy', 'medium', 'hard']
+	levels: ['Easy', 'Medium', 'Hard']
+	level: null
 
 `export default PlayController`
