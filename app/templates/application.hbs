@@ -1,3 +1,12 @@
-<h2 id="title">Welcome to Ember.js</h2>
+<header>
+	<nav>
+		{{#link-to 'index' class='brand'}}Minesweeper{{/link-to}}
+
+		<ul class="nav">
+			<li>{{#link-to 'index'}}Home{{/link-to}}</li>
+			<li>{{#link-to 'play'}}Play{{/link-to}}</li>
+		</ul>
+	</nav>	
+</header>
 
 {{outlet}}
