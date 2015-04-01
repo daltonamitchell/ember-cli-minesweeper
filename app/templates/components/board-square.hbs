@@ -1,0 +1,17 @@
+{{#with model as square}}
+	{{#if square.hasMine}}
+		<div class="panel panel-success col-sm-1 board-square">
+			<div class="panel-heading">
+				<h3 class="panel-title">*</h3>
+			</div>
+			<div class="panel-body">
+				Flag: {{square.isFlagged}}
+			</div>
+		</div>
+	{{else}}
+		<div class="well well-sm col-sm-1 board-square">
+			({{square.row}}, {{square.col}})<br>
+			Flag: {{square.isFlagged}}
+		</div>
+	{{/if}}
+{{/with}}

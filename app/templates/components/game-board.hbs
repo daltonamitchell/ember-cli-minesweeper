@@ -4,11 +4,7 @@
 			{{#each row in sortedRows}}
 				<div class="row">
 					{{#each square in row}}
-						<div class="well well-sm col-sm-1 board-square">
-							{{square.id}}<br>
-							({{square.row}}, {{square.col}})<br>
-							{{@index}}
-						</div>
+						{{board-square model=square}}
 					{{/each}}
 				</div>
 			{{/each}}

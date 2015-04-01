@@ -1,6 +1,7 @@
 `import Ember from "ember"`
 `import makeBoard from "ember-minesweeper/utils/make-board"`
 `import makeSquares from "ember-minesweeper/utils/make-squares"`
+`import plantMines from "ember-minesweeper/utils/plant-mines"`
 
 PlayController = Ember.Controller.extend
 	levels: [
@@ -32,6 +33,7 @@ PlayController = Ember.Controller.extend
 		level = this.get 'level'
 		board = makeBoard.call(this, level)
 		board = makeSquares.call(this, board)
+		board = plantMines.call(this, board)
 
 		this.set('model', board)
 	).observes 'level'
