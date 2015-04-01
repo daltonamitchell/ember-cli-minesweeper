@@ -22,7 +22,7 @@ module.exports = function(environment) {
 
   ENV.contentSecurityPolicy = {
     'default-src': "'none'",
-    'script-src': "'self' https://maxcdn.bootstrapcdn.com",
+    'script-src': "'self' 'unsafe-inline' https://maxcdn.bootstrapcdn.com",
     'font-src': "'self' https://maxcdn.bootstrapcdn.com",
     'connect-src': "'self'",
     'img-src': "'self'",
