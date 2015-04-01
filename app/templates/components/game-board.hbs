@@ -1,10 +1,16 @@
 {{#with model as board}}
 	<div class="panel panel-default">
 		<div class="panel-body">
-			Game Board
-
-			{{#each square in board.square}}
-				<div class="well well-sm board-square">[]</div>
+			{{#each row in sortedRows}}
+				<div class="row">
+					{{#each square in row}}
+						<div class="well well-sm col-sm-1 board-square">
+							{{square.id}}<br>
+							({{square.row}}, {{square.col}})<br>
+							{{@index}}
+						</div>
+					{{/each}}
+				</div>
 			{{/each}}
 		</div>
 	</div>

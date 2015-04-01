@@ -16,15 +16,15 @@
 </div>
 
 {{#unless level}}
-<div>
-	{{view 'select' 
-		class="form-control" 
-		content=levels
-		optionValuePath="content"
-		optionLabelPath="content.name"
-		selection=level
-		prompt="Please select a level to continue"}}
-</div>
+	<div>
+		{{view 'select' 
+			class="form-control" 
+			content=levels
+			optionValuePath="content"
+			optionLabelPath="content.name"
+			selection=level
+			prompt="Please select a level to continue"}}
+	</div>
 {{/unless}}
 
 {{#if model}}
