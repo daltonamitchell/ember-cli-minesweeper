@@ -7,7 +7,6 @@ PlayController = Ember.Controller.extend
 	actions:
 		gameOver: ->
 			alert 'Boom!!! You lose chump'
-			this.get('model').destroyRecord()
 			this.transitionToRoute 'game-over'
 	levels: [
 		{
@@ -36,11 +35,13 @@ PlayController = Ember.Controller.extend
 	levelDidChange: (->
 		# Set properties on model
 		level = this.get 'level'
-		board = makeBoard.call(this, level)
-		board = makeSquares.call(this, board)
-		board = plantMines.call(this, board)
 
-		this.set('model', board)
+		# Setup the game if a level was actually selected
+		if level?
+			board = makeBoard.call(this, level)
+			board = makeSquares.call(this, board)
+			board = plantMines.call(this, board)
+			this.set('model', board)
 	).observes 'level'
 
 	# Set counters
