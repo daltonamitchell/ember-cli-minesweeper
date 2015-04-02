@@ -30,7 +30,6 @@ BoardSquare = Ember.Component.extend
 			else this.send 'showMinesNearby'
 		showMinesNearby: ->
 			mines = this.get('nearbySquares.length') or 0
-			console.log mines
 			this.set('nearbyMines', mines)
 		setFlag: ->
 			# Mark a turn
@@ -76,7 +75,7 @@ BoardSquare = Ember.Component.extend
 			this.send 'setFlag'
 
 	# Track if this square has been clicked yet
-	wasClicked: false
+	wasClicked: Ember.computed.alias 'model.wasClicked'
 
 	# Track nearest squares
 	squares: Ember.computed.alias 'model.board.squares'

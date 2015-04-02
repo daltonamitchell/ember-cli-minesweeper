@@ -4,6 +4,7 @@ createSquare = (board, row) ->
 		col: col
 		isFlagged: false
 		hasMine: false
+		wasClicked: false
 	}) for col in [board.get('cols')..1]
 
 makeSquares = (board) ->
