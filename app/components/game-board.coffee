@@ -1,6 +1,9 @@
 `import Ember from "ember"`
 
 GameBoardComponent = Ember.Component.extend
+	actions:
+		gameOver: ->
+			this.sendAction()
 	sortedRows: (->
 		# Container to hold sorted rows
 		rows = []

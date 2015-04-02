@@ -4,6 +4,11 @@
 `import plantMines from "ember-minesweeper/utils/plant-mines"`
 
 PlayController = Ember.Controller.extend
+	actions:
+		gameOver: ->
+			alert 'Boom!!! You lose chump'
+			this.get('model').destroyRecord()
+			this.transitionToRoute 'game-over'
 	levels: [
 		{
 			name: 'Easy'

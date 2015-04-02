@@ -5,7 +5,9 @@ BoardSquare = Ember.Component.extend
 		checkForMine: ->
 			coords = "(#{ this.get('model.row') }, #{ this.get('model.col') })"
 			if this.get('model.hasMine')
-			then console.log('Boom!!! You lose :(', coords)
+			# Fire gameOver Action on controller
+			then this.sendAction('action')
+			# Show mine count in nearby squares
 			else console.log('Still kickin...', coords)  
 		setFlag: ->
 			# Check flags left

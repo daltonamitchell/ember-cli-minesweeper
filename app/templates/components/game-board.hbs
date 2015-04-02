@@ -4,7 +4,7 @@
 			{{#each row in sortedRows}}
 				<div class="row">
 					{{#each square in row}}
-						{{board-square model=square}}
+						{{board-square action="gameOver" model=square}}
 					{{/each}}
 				</div>
 			{{/each}}
