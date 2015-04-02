@@ -38,12 +38,18 @@ BoardSquare = Ember.Component.extend
 				# Can't flag anymore
 				alert("You don't have any flags left!")
 
+	# Track click events
 	click: ->
-		this.send 'checkForMine'
+		# Check if square has already been clicked or currently has a flag
+		unless this.get('wasClicked') or this.get('model.isFlagged')
+			this.set('wasClicked', true)
+			this.send 'checkForMine'
 	mouseDown: (event) ->
 		if (event.which is 3)
 			event.preventDefault()
 			this.send 'setFlag'
 
+	# Track if this square has been clicked yet
+	wasClicked: false
 
 `export default BoardSquare`

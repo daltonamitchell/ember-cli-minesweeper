@@ -1,6 +1,9 @@
 {{#with model as square}}
 	<div class="well well-sm col-sm-1 board-square">
 		({{square.row}}, {{square.col}})<br>
+		{{#if wasClicked}}
+			<i class="fa fa-check text-success"></i>
+		{{/if}}
 		{{#if square.hasMine}}
 			<i class="fa fa-bomb text-danger"></i>
 		{{/if}}
