@@ -4,6 +4,8 @@ GameBoardComponent = Ember.Component.extend
 	actions:
 		gameOver: ->
 			this.sendAction()
+		takeTurn: ->
+			this.sendAction('takeTurn')
 	sortedRows: (->
 		# Container to hold sorted rows
 		rows = []

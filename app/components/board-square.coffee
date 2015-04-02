@@ -3,13 +3,18 @@
 BoardSquare = Ember.Component.extend
 	actions:
 		checkForMine: ->
-			coords = "(#{ this.get('model.row') }, #{ this.get('model.col') })"
+			# Mark a turn
+			this.sendAction('takeTurn')
+
 			if this.get('model.hasMine')
 			# Fire gameOver Action on controller
 			then this.sendAction('action')
 			# Show mine count in nearby squares
-			else console.log('Still kickin...', coords)  
+			else console.log('Still kickin...')  
 		setFlag: ->
+			# Mark a turn
+			this.sendAction('takeTurn')
+
 			# Check flags left
 			board = this.get('model').get('board')
 			flagsLeft = board.get('flags')
