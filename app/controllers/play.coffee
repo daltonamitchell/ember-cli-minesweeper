@@ -6,10 +6,10 @@
 PlayController = Ember.Controller.extend
 	actions:
 		gameOver: ->
-			alert 'Boom!!! You lose chump'
+			alert 'Boom!!! You were blown up. No need to cry though. Pick up your limbs and try again.'
 			this.transitionToRoute 'game-over'
 		gameWon: ->
-			alert 'Winning! Whoop whoop!!!'
+			alert 'Winning! Whoop whoop!!! You made it through this level, but can you beat the next?'
 			this.transitionToRoute 'game-over'
 		takeTurn: ->
 			# Increment turns counter

@@ -63,6 +63,9 @@ BoardSquare = Ember.Component.extend
 				# Can't flag anymore
 				alert("You don't have any flags left!")
 
+	# Change styling when clicked
+	classNameBindings: ['wasClicked', 'isFlagged']
+
 	# Track click events
 	click: ->
 		# Check if square has already been clicked or currently has a flag
@@ -76,6 +79,7 @@ BoardSquare = Ember.Component.extend
 
 	# Track if this square has been clicked yet
 	wasClicked: Ember.computed.alias 'model.wasClicked'
+	isFlagged: Ember.computed.alias 'model.isFlagged'
 
 	# Track nearest squares
 	squares: Ember.computed.alias 'model.board.squares'

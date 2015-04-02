@@ -28,5 +28,10 @@
 {{/unless}}
 
 {{#if model}}
-	{{game-board model=model action="gameOver" takeTurn="takeTurn" startTimer="startTimer"}}
+	{{game-board model=model action="gameOver" takeTurn="takeTurn" startTimer="startTimer" classNames="game-board"}}
+{{else}}
+	{{#if level}}
+		<i class="fa fa-spinner fa-5x fa-pulse text-danger"></i>
+	{{/if}}
 {{/if}}
+

@@ -1,13 +1,13 @@
-{{#with model as board}}
-	<div class="panel panel-default" oncontextmenu="return false;">
-		<div class="panel-body">
-			{{#each row in sortedRows}}
-				<div class="row">
+<div class="board-container" oncontextmenu="return false;">
+	{{#with model as board}}
+		{{#each row in sortedRows}}
+			<div class="row">
+				<div class="col-sm-12 text-center">
 					{{#each square in row}}
-						{{board-square action="gameOver" takeTurn="takeTurn" model=square}}
+						{{board-square classNames="board-square" action="gameOver" takeTurn="takeTurn" model=square}}
 					{{/each}}
 				</div>
-			{{/each}}
-		</div>
-	</div>
-{{/with}}
+			</div>
+		{{/each}}
+	{{/with}}
+</div>

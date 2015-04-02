@@ -1,0 +1,64 @@
+$dark-red: #e1563f;
+$light-red: #aa412f;
+$white: #efefef;
+$light-grey: #cdcdcd;
+$yellow: #f1c40f;
+
+body, .navbar-brand {
+	color: $white !important;
+}
+
+.navbar-default {
+	background-color: $dark-red;
+	border-bottom: $light-red;
+	border-radius: 0;
+}
+
+.jumbotron {
+	background-color: $white;
+	border-color: $dark-red;
+	color: $light-red;
+}
+
+.game-board {
+	.board-square {
+		height: auto;
+		min-height: 25px;
+		width: 3%;
+		max-width: 30px;
+		display: block;
+		float: left;
+		border: 1px solid $dark-red;
+		background: $dark-red;
+		text-align: center;
+	}
+
+	 .row:nth-child(odd) .board-square:nth-child(even),
+	 .row:nth-child(even) .board-square:nth-child(odd) {
+		border-color: $light-red;
+		background-color: $light-red;
+	}
+}
+
+.mine-count {
+	font-weight: bold;
+	color: $dark-red;
+}
+
+.board-square.was-clicked {
+	border-color: $white;
+	background-color: $white;
+}
+
+ .row:nth-child(odd) .board-square.was-clicked:nth-child(even),
+ .row:nth-child(even) .board-square.was-clicked:nth-child(odd) {
+	border-color: $light-grey;
+	background-color: $light-grey;
+}
+
+.board-square.is-flagged,
+.row:nth-child(odd) .board-square.is-flagged:nth-child(even),
+.row:nth-child(even) .board-square.is-flagged:nth-child(odd) {
+	border-color: $yellow;
+	background-color: $yellow;
+}
