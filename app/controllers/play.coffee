@@ -11,6 +11,9 @@ PlayController = Ember.Controller.extend
 		takeTurn: ->
 			# Increment turns counter
 			this.set('turns', this.get('turns') + 1)
+		startTimer: ->
+			# Start the first tick
+			this.set('timeSpent', 1) if this.get('timeSpent') is 0
 	levels: [
 		{
 			name: 'Easy'
@@ -41,6 +44,8 @@ PlayController = Ember.Controller.extend
 
 		# Setup the game if a level was actually selected
 		if level?
+			# Reset the timer if running
+			this.set('timeSpent', 0)
 			board = makeBoard.call(this, level)
 			board = makeSquares.call(this, board)
 			board = plantMines.call(this, board)
@@ -50,7 +55,16 @@ PlayController = Ember.Controller.extend
 	# Set counters
 	minesLeft: Ember.computed.alias 'model.mines'
 	flagsLeft: Ember.computed.alias 'model.flags'
-	timeSpent: 0
 	turns: 0
+	timeSpent: 0
+	tick: (->
+		# Don't start unless a model has been set
+		if this.get('model')?
+			current = this.get('timeSpent')
+			self = this
+			Ember.run.later ->
+				self.set('timeSpent', current + 1)
+			, 1000
+	).observes('timeSpent')
 
 `export default PlayController`

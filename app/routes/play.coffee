@@ -19,6 +19,10 @@ PlayRoute = Ember.Route.extend
 			squares.forEach (square) ->
 				square.destroyRecord()
 
+			# Default all the things
+			controller.set('turns', 0)
+			controller.set('timeSpent', 0)
+
 	setupController: (controller, model) ->
 		this._super(controller, model)
 

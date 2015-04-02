@@ -1,6 +1,8 @@
 `import Ember from "ember"`
 
 GameBoardComponent = Ember.Component.extend
+	click: ->
+		this.sendAction('startTimer')
 	actions:
 		gameOver: ->
 			this.sendAction()
