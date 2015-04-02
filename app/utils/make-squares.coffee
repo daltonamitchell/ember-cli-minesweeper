@@ -2,6 +2,8 @@ createSquare = (board, row) ->
 	board.get('squares').createRecord({
 		row: row
 		col: col
+		isFlagged: false
+		hasMine: false
 	}) for col in [board.get('cols')..1]
 
 makeSquares = (board) ->
