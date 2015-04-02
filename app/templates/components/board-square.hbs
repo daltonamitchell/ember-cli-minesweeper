@@ -1,9 +1,7 @@
 {{#with model as square}}
 	<div class="well well-sm col-sm-1 board-square">
-		{{#if nearbyMines}}
-			<strong>{{nearbyMines}}</strong>
-		{{/if}}
 		{{#if wasClicked}}
+			<strong>{{number-format nearbyMines}}</strong>
 			<i class="fa fa-check text-success"></i>
 		{{/if}}
 		{{#if square.hasMine}}
