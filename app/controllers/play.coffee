@@ -8,6 +8,9 @@ PlayController = Ember.Controller.extend
 		gameOver: ->
 			alert 'Boom!!! You lose chump'
 			this.transitionToRoute 'game-over'
+		gameWon: ->
+			alert 'Winning! Whoop whoop!!!'
+			this.transitionToRoute 'game-over'
 		takeTurn: ->
 			# Increment turns counter
 			this.set('turns', this.get('turns') + 1)
@@ -66,5 +69,18 @@ PlayController = Ember.Controller.extend
 				self.set('timeSpent', current + 1)
 			, 1000
 	).observes('timeSpent')
+
+	# All squares should be clicked and all bombs flagged
+	gameWasWon: (->	
+		# Check if game won
+		this.send('gameWon') if this.get('minesLeft') is 0 and this.get('allSquaresClicked')
+	).observes('minesLeft', 'allSquaresClicked')
+
+	# All square should be clicked or flagged
+	allSquaresClicked: (->
+		squares = this.get('model.squares')
+		squares.every (square) ->
+			square.get('wasClicked') or square.get('isFlagged')
+	).property('model.squares.@each.wasClicked', 'model.squares.@each.isFlagged')
 
 `export default PlayController`
