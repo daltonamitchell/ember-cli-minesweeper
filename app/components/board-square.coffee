@@ -13,6 +13,7 @@ BoardSquare = Ember.Component.extend
 			# Check flags left
 			board = this.get('model').get('board')
 			flagsLeft = board.get('flags')
+			minesLeft = board.get('mines')
 
 			# Get current flagged state of this square
 			currentFlag = this.get('model.isFlagged')
@@ -22,12 +23,17 @@ BoardSquare = Ember.Component.extend
 				# Set the opposite
 				this.set('model.isFlagged', !currentFlag)
 
-				# Update flags count
+				# Update game counts
 				if currentFlag
-					value = flagsLeft + 1
+					flagsLeft++
+					minesLeft++ if this.get('model.hasMine')
 				else
-					value = flagsLeft - 1
-				board.set('flags', value)
+					flagsLeft--
+					minesLeft-- if this.get('model.hasMine')
+				board.set('flags', flagsLeft)
+
+				# Update mines remaining if flagging a square with a mine
+				board.set('mines', minesLeft) if this.get('model.hasMine')
 			else
 				# Can't flag anymore
 				alert("You don't have any flags left!")
