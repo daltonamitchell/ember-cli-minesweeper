@@ -1,6 +1,6 @@
 # Ember-minesweeper
 
-This is an example of how the build [Minesweeper](http://en.wikipedia.org/wiki/Microsoft_Minesweeper) using [EmberJS](http://emberjs.com).
+This is an example of how to build [Minesweeper](http://en.wikipedia.org/wiki/Microsoft_Minesweeper) using [EmberJS](http://emberjs.com).
 
 A working demo can be played at [https://ember-minesweeper.herokuapp.com](https://ember-minesweeper.herokuapp.com)
 

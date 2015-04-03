@@ -27,10 +27,7 @@ BoardSquare = Ember.Component.extend
 			# Fire gameOver Action on controller
 			then this.sendAction('action')
 			# Show mine count in nearby squares
-			else this.send 'showMinesNearby'
-		showMinesNearby: ->
-			mines = this.get('nearbySquares.length') or 0
-			this.set('nearbyMines', mines)
+			else console.log('Showing mines nearby...')
 		setFlag: ->
 			# Mark a turn
 			this.sendAction('takeTurn')
@@ -84,9 +81,9 @@ BoardSquare = Ember.Component.extend
 	# Track nearest squares
 	squares: Ember.computed.alias 'model.board.squares'
 	nearbySquares: Ember.computed.filter 'squares', (square) ->
-		isNearby( square, this.get('model') ) and square.get 'hasMine'
+		isNearby( square, this.get('model') )
 
 	# Holds value of total mines nearby
-	nearbyMines: null
+	nearbyMines: Ember.computed.filterBy 'nearbySquares', 'hasMine'
 
 `export default BoardSquare`

@@ -1,6 +1,6 @@
 {{#with model as square}}
 	{{#if wasClicked}}
-		<span class="mine-count">{{number-format nearbyMines}}</span>
+		<span class="mine-count">{{number-format nearbyMines.length}}</span>
 	{{/if}}
 	{{#if square.isFlagged}}
 		<i class="fa fa-flag"></i>
