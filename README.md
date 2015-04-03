@@ -1,11 +1,24 @@
 # Ember-minesweeper
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This is an example of how the build [Minesweeper](http://en.wikipedia.org/wiki/Microsoft_Minesweeper) using [EmberJS](http://emberjs.com).
 
-## Prerequisites
+A working demo can be played at [https://ember-minesweeper.herokuapp.com](https://ember-minesweeper.herokuapp.com)
 
-You will need the following things properly installed on your computer.
+This app is built using the open source projects/packages. Check them out if you're interested in learning more:
+
+* [ember.js](http://emberjs.com/)
+* [ember-cli](http://www.ember-cli.com/)
+* [Bootstrap3](http://www.getbootstrap.com)
+* [Sass](http://www.sass-lang.com)
+* [CoffeeScript](http://www.coffeescript.org)
+
+### How to play
+
+The goal of the game is to uncover all the squares that do not contain mines without being "blown up" by clicking on a square with a mine underneath. The location of the mines is discovered by a process of logic. You can also flag squares that you suspect contain mines by `right+click`.
+
+## Running locally
+
+You can run this game on you local computer, play with the code, and even change things around and make improvements. Here are a few things you'll need to have installed first.
 
 * [Git](http://git-scm.com/)
 * [Node.js](http://nodejs.org/) (with NPM)
@@ -15,39 +28,14 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
-* `git clone <repository-url>` this repository
-* change into the new directory
+Run the following commands in your terminal:
+
+* `git clone https://github.com/daltonamitchell/ember-cli-minesweeper.git` this repository
+* `cd ember-cli-minesweeper` change into the new directory
 * `npm install`
 * `bower install`
 
-## Running / Development
+## Running the app
 
 * `ember server`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
-
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
-
-### Running Tests
-
-* `ember test`
-* `ember test --server`
-
-### Building
-
-* `ember build` (development)
-* `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](http://emberjs.com/)
-* [ember-cli](http://www.ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
-
