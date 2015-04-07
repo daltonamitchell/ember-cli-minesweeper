@@ -4,7 +4,11 @@
 			<div class="row">
 				<div class="col-sm-12 text-center">
 					{{#each square in row}}
-						{{board-square classNames="board-square" action="gameOver" takeTurn="takeTurn" model=square}}
+						{{board-square 
+							classNames="board-square" 
+							action="gameOver" 
+							takeTurn="takeTurn"
+							model=square}}
 					{{/each}}
 				</div>
 			</div>

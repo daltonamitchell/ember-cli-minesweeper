@@ -3,6 +3,7 @@ $light-red: #aa412f;
 $white: #efefef;
 $light-grey: #dedede;
 $yellow: #f1c40f;
+$green: #27ae60;
 
 body, .navbar-brand {
 	color: $white !important;
@@ -48,6 +49,10 @@ body, .navbar-brand {
 .board-square.was-clicked {
 	border-color: $white;
 	background-color: $white;
+
+	.fa-bomb {
+		color: $dark-red;
+	}
 }
 
  .row:nth-child(odd) .board-square.was-clicked:nth-child(even),
@@ -61,4 +66,11 @@ body, .navbar-brand {
 .row:nth-child(even) .board-square.is-flagged:nth-child(odd) {
 	border-color: $yellow;
 	background-color: $yellow;
+}
+
+.board-square.is-flagged.show-mine.has-mine,
+.row:nth-child(odd) .board-square.is-flagged.show-mine.has-mine:nth-child(even),
+.row:nth-child(even) .board-square.is-flagged.show-mine.has-mine:nth-child(odd) {
+	border-color: $green;
+	background-color: $green;
 }

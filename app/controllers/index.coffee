@@ -7,9 +7,11 @@ PlayController = Ember.Controller.extend
 	actions:
 		gameOver: ->
 			alert 'Boom!!! You were blown up. No need to cry though. Pick up your limbs and try again.'
+			@send 'showMines'
 			@set 'gameOver', true
 		gameWon: ->
 			alert 'Winning! Whoop whoop!!! You made it through this level, but can you beat the next?'
+			@send 'showMines'
 			@set 'gameWon', true
 		takeTurn: ->
 			# Increment turns counter
@@ -17,6 +19,10 @@ PlayController = Ember.Controller.extend
 		startTimer: ->
 			# Start the first tick
 			@set('timeSpent', 1) if @get('timeSpent') is 0
+		showMines: ->
+			squares = @get 'model.squares'
+			squares.forEach (square) ->
+				square.set 'showMine', true
 		resetGame: ->
 			board = @get('model')
 			squares = board.get('squares')
@@ -37,6 +43,7 @@ PlayController = Ember.Controller.extend
 			@set('timeSpent', 0)
 			@set('gameOver', false)
 			@set('gameWon', false)
+			@set('showMines', false)
 	levels: [
 		{
 			name: 'Easy'

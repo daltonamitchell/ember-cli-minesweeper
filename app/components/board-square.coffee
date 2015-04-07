@@ -83,22 +83,25 @@ BoardSquare = Ember.Component.extend
 				alert("You don't have any flags left!")
 
 	# Change styling when clicked
-	classNameBindings: ['wasClicked', 'isFlagged']
+	classNameBindings: ['wasClicked', 'isFlagged', 'showMine', 'hasMine']
 
 	# Track click events
 	click: ->
 		# Check if square has already been clicked or currently has a flag
-		unless this.get('wasClicked') or this.get('model.isFlagged')
-			this.set('wasClicked', true)
-			this.send 'checkForMine'
+		unless @get('wasClicked') or @get('model.isFlagged') or @get('model.showMine')
+			@set('wasClicked', true)
+			@send 'checkForMine'
 	mouseDown: (event) ->
 		if (event.which is 3)
-			event.preventDefault()
-			this.send 'setFlag'
+			unless @get('wasClicked') or @get('model.showMine')
+				event.preventDefault()
+				this.send 'setFlag'
 
 	# Track if this square has been clicked yet
 	wasClicked: Ember.computed.alias 'model.wasClicked'
 	isFlagged: Ember.computed.alias 'model.isFlagged'
+	showMine: Ember.computed.alias 'model.showMine'
+	hasMine: Ember.computed.alias 'model.hasMine'
 
 	# Track nearest squares
 	squares: Ember.computed.alias 'model.board.squares'
