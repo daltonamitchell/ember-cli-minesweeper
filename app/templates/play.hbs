@@ -1,5 +1,5 @@
 <div class="jumbotron">
-	<h2>Welcome to Minesweeper</h2>
+	<h2>Ember Minesweeper</h2>
 
 	{{#if level}}
 		<p>Current level: {{level.name}}</p>
@@ -9,6 +9,11 @@
 			<div class="col-sm-3"><strong>Time:</strong> {{timeSpent}}</div>
 			<div class="col-sm-3"><strong>Mines:</strong> {{level.mines}}</div>
 			<div class="col-sm-3"><strong>Flags remaining:</strong> {{flagsLeft}}</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12 text-center">
+				<button {{action 'resetGame'}} class="btn btn-danger" role="button">Reset</button>
+			</div>			
 		</div>
 	{{else}}
 		<p>Let's get started. Please select a level below to continue.</p>
