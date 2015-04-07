@@ -16,12 +16,13 @@ GameBoardComponent = Ember.Component.extend
 		squares = this.get('model.squares')
 
 		# Sort all the things
-		squares.forEach (square, index) ->
-			currentRow = square.get 'row'
-			if ( rows[ currentRow ] )
-				rows[ currentRow ].unshift( square )
-			else
-				rows[ currentRow ] = [square]
+		if squares
+			squares.forEach (square, index) ->
+				currentRow = square.get 'row'
+				if ( rows[ currentRow ] )
+					rows[ currentRow ].unshift( square )
+				else
+					rows[ currentRow ] = [square]
 
 		# Return sorted rows
 		rows
