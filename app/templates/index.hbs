@@ -1,15 +1,21 @@
 <div class="jumbotron">
 	<h1>Ember Minesweeper</h1>
 
-	{{#if gameOver}}
-		<h2>Boom! Game Over!</h2>
 
+	{{#if gameOver}}
+		<img src="assets/tomster-stink.jpeg">
+
+		<h2>Boom! Game Over!</h2>
 		<p>I'm sorry you didn't win. No worrys though. You can always try again.</p>
+		<hr>
 	{{/if}}
 
 	{{#if gameWon}}
+		<img src="assets/tomster-happy.png" class="img-rounded">
+
 		<h2>Winning! Whoop whoop!!!</h2>
 		<p>You made it through this level, but can you beat the next?</p>
+		<hr>
 	{{/if}}
 
 	{{#if level}}
