@@ -1,6 +1,14 @@
 <div class="jumbotron">
 	<h2>Ember Minesweeper</h2>
 
+	{{#if gameOver}}
+		<h2>Boo, game over!</h2>
+	{{/if}}
+
+	{{#if gameWon}}
+		<h2>Yay, game won!</h2>
+	{{/if}}
+
 	{{#if level}}
 		<p>Current level: {{level.name}}</p>
 

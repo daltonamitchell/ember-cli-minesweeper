@@ -7,10 +7,10 @@ PlayController = Ember.Controller.extend
 	actions:
 		gameOver: ->
 			alert 'Boom!!! You were blown up. No need to cry though. Pick up your limbs and try again.'
-			@transitionToRoute 'game-over'
+			@set 'gameOver', true
 		gameWon: ->
 			alert 'Winning! Whoop whoop!!! You made it through this level, but can you beat the next?'
-			@transitionToRoute 'game-over'
+			@set 'gameWon', true
 		takeTurn: ->
 			# Increment turns counter
 			@set('turns', @get('turns') + 1)
@@ -35,6 +35,8 @@ PlayController = Ember.Controller.extend
 			@set('model', undefined)
 			@set('turns', 0)
 			@set('timeSpent', 0)
+			@set('gameOver', false)
+			@set('gameWon', false)
 	levels: [
 		{
 			name: 'Easy'
@@ -80,7 +82,8 @@ PlayController = Ember.Controller.extend
 	timeSpent: 0
 	tick: (->
 		# Don't start unless a model has been set
-		if @get('model')?
+		# Stop counting if game won or over
+		if @get('model')? and !@get('gameWon') and !@get('gameOver')
 			current = @get('timeSpent')
 			self = this
 			Ember.run.later ->
