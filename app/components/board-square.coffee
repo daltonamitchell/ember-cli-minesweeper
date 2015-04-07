@@ -17,6 +17,26 @@ isNearby = (current, target) ->
 		offByOne( current.get('row'), target.get('row') ) and
 		offByOne( current.get('col'), target.get('col') )
 
+clickIfEmpty = (origSquare) ->
+	# Click square if no mine
+	origSquare.set('wasClicked', true) unless origSquare.get('hasMine') or origSquare.get('wasClicked')
+
+	# Track nearest squares
+	squares = origSquare.get 'board.squares'
+	nearbySquares = squares.filter (square) ->
+		isNearby( square, origSquare )
+
+	# Holds value of total mines nearby
+	nearbyMines = nearbySquares.filterBy 'hasMine'
+
+	# Nearby squares that haven't been clicked yet
+	nearbyUnclicked = nearbySquares.filterBy 'wasClicked', false
+
+	# Make a recursive call to all nearby mines
+	if nearbyMines.length is 0
+		nearbyUnclicked.forEach (square) ->
+			clickIfEmpty square
+
 BoardSquare = Ember.Component.extend
 	actions:
 		checkForMine: ->
@@ -24,10 +44,12 @@ BoardSquare = Ember.Component.extend
 			this.sendAction('takeTurn')
 
 			if this.get('model.hasMine')
-			# Fire gameOver Action on controller
-			then this.sendAction('action')
-			# Show mine count in nearby squares
-			else console.log('Showing mines nearby...')
+				# Fire gameOver Action on controller
+				this.sendAction('action')
+			else
+				# Click square and attempt a cascade
+				if @get('nearbyMines.length') is 0
+					@get('nearbySquares').forEach clickIfEmpty
 		setFlag: ->
 			# Mark a turn
 			this.sendAction('takeTurn')
@@ -85,5 +107,8 @@ BoardSquare = Ember.Component.extend
 
 	# Holds value of total mines nearby
 	nearbyMines: Ember.computed.filterBy 'nearbySquares', 'hasMine'
+
+	# Nearby squares that haven't been clicked yet
+	nearbyUnclicked: Ember.computed.filterBy 'nearbySquares', 'wasClicked', false
 
 `export default BoardSquare`
