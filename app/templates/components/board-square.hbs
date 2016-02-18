@@ -1,4 +1,4 @@
-{{#with model as square}}
+{{#with model as |square|}}
 	{{#if square.showMine}}
 		{{#if square.hasMine}}
 			{{#unless square.isFlagged}}<i class="fa fa-bomb"></i>{{/unless}}

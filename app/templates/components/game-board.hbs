@@ -1,12 +1,12 @@
 <div class="board-container" oncontextmenu="return false;">
-	{{#with model as board}}
-		{{#each row in sortedRows}}
+	{{#with model as |board|}}
+		{{#each row as |sortedRows|}}
 			<div class="row">
 				<div class="col-sm-12 text-center">
-					{{#each square in row}}
-						{{board-square 
+					{{#each square as |row|}}
+						{{board-square
 							classNames="board-square" 
-							action="gameOver" 
+							action="gameOver"
 							takeTurn="takeTurn"
 							model=square}}
 					{{/each}}

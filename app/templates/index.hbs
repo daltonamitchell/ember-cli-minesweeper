@@ -30,7 +30,7 @@
 		<div class="row">
 			<div class="col-sm-12 text-center">
 				<button {{action 'resetGame'}} class="btn btn-danger" role="button">Reset Game</button>
-			</div>			
+			</div>
 		</div>
 	{{else}}
 		<p>Let's get started. Please select a level below to continue.</p>
@@ -39,8 +39,9 @@
 
 {{#unless level}}
 	<div>
-		{{view 'select' 
-			class="form-control" 
+		{{!-- TODO: Refactor! {{view}} keyword is deprecated  --}}
+		{{view 'select'
+			class="form-control"
 			content=levels
 			optionValuePath="content"
 			optionLabelPath="content.name"
@@ -50,10 +51,10 @@
 {{/unless}}
 
 {{#if model}}
-	{{game-board 
-		model=model 
-		action="gameOver" 
-		takeTurn="takeTurn" 
+	{{game-board
+		model=model
+		action="gameOver"
+		takeTurn="takeTurn"
 		startTimer="startTimer"
 		classNames="game-board"}}
 {{else}}
@@ -61,4 +62,3 @@
 		<i class="fa fa-spinner fa-5x fa-pulse text-danger"></i>
 	{{/if}}
 {{/if}}
-
