@@ -39,14 +39,12 @@
 
 {{#unless level}}
 	<div>
-		{{!-- TODO: Refactor! {{view}} keyword is deprecated  --}}
-		{{view 'select'
-			class="form-control"
-			content=levels
-			optionValuePath="content"
-			optionLabelPath="content.name"
-			selection=level
-			prompt="Please select a level to continue"}}
+		{{#x-select value=level class="form-control"}}
+			<option>Please select a level to continue</option>
+			{{#each levels as |level|}}
+				{{#x-option value=level}}{{level.name}}{{/x-option}}
+			{{/each}}
+		{{/x-select}}
 	</div>
 {{/unless}}
 
