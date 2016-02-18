@@ -7,6 +7,6 @@ GameBoardModel = DS.Model.extend
 	flags: attr 'number'
 	rows: attr 'number'
 	cols: attr 'number'
-	squares: DS.hasMany 'board-square'
+	squares: DS.hasMany 'board-square', async: false 
 
 `export default GameBoardModel`

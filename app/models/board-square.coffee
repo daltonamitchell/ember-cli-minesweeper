@@ -8,6 +8,6 @@ SquareModel = DS.Model.extend
 	wasClicked: attr 'boolean', default: false
 	row: attr 'number'
 	col: attr 'number'
-	board: DS.belongsTo 'game-board'
+	board: DS.belongsTo 'game-board', async: false
 
 `export default SquareModel`
