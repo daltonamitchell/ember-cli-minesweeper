@@ -1,11 +1,11 @@
 <div class="board-container" oncontextmenu="return false;">
 	{{#with model as |board|}}
-		{{#each row as |sortedRows|}}
+		{{#each sortedRows as |row|}}
 			<div class="row">
 				<div class="col-sm-12 text-center">
-					{{#each square as |row|}}
+					{{#each row as |square|}}
 						{{board-square
-							classNames="board-square" 
+							classNames="board-square"
 							action="gameOver"
 							takeTurn="takeTurn"
 							model=square}}
