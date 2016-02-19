@@ -26,6 +26,6 @@ GameBoardComponent = Ember.Component.extend
 
 		# Return sorted rows
 		rows
-	).property('model.squares.@each')
+	).property('model.squares.[]')
 
 `export default GameBoardComponent`
