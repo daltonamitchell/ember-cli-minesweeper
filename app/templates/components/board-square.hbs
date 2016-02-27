@@ -1,13 +1,18 @@
+<span class="mine-status">
 {{#with model as |square|}}
+
 	{{#if square.showMine}}
 		{{#if square.hasMine}}
 			{{#unless square.isFlagged}}<i class="fa fa-bomb"></i>{{/unless}}
 		{{/if}}
 	{{/if}}
+
 	{{#if wasClicked}}
 		{{#unless square.hasMine}}<span class="mine-count">{{number-format nearbyMines.length}}</span>{{/unless}}
 	{{/if}}
+	
 	{{#if square.isFlagged}}
 		<i class="fa fa-flag"></i>
 	{{/if}}
 {{/with}}
+</span>

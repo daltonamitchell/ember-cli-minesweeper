@@ -1,16 +1,14 @@
 <div class="board-container" oncontextmenu="return false;">
 	{{#with model as |board|}}
 		{{#each sortedRows as |row|}}
-			<div class="row">
-				<div class="col-sm-12 text-center">
-					{{#each row as |square|}}
-						{{board-square
-							classNames="board-square"
-							action="gameOver"
-							takeTurn="takeTurn"
-							model=square}}
-					{{/each}}
-				</div>
+			<div class="flex-container">
+				{{#each row as |square|}}
+					{{board-square
+						classNames="board-square flex-item"
+						action="gameOver"
+						takeTurn="takeTurn"
+						model=square}}
+				{{/each}}
 			</div>
 		{{/each}}
 	{{/with}}
